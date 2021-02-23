@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>Them Phong:</h1>
+
+<form th:action="@{/phong/saveOrUpdate}" method="post" th:object="${phong}">
+
+<!--  <div th:if="${id>0}"> -->
+	<input th:field ="*{id}" placeholder="Id Phong"> <br/>
+	<!-- </div> -->
+	<input type="text" th:field = "*{ten}" placeholder="Ten Phong" /> <br/>
+	<input type="text" th:field = "*{type}" placeholder="Kieu Phong" /> <br/>
+	<input type="text" th:field = "*{dongia}" placeholder="Don gia" /> <br/>
+	<input type="text" th:field = "*{maxnguoio}" placeholder="So nguoi toi da" /> <br/>
+
+	<input type="submit" value="Add"  />
+	<a th:href="@{/phong/add}">New</a> 
+	 <br/>
+	<a th:href= "@{/phong/list}"> List Phong </a>
+
+</form>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1> Tim Phong Theo Ten:</h1>
+<form th:action="@{/phong/find}">
+	<input type="text" name="ten" placeholder="ten" />
+	<input type="submit" value="Find" />
+</form>
+
+<hr />
+<table>
+	<tr>
+		<td>ID</td>
+		<td>Ten Phong</td>
+		<td>Type</td>
+		<td>Don gia</td>
+		<td>So nguoi max</td>		
+		<td>&nbsp;</td>
+	</tr>
+	
+	<tr th:each="item : ${phongs}">
+		<td th:text= "${item.id}"> </td>
+		<td th:text= "${item.ten}" > </td>
+		<td th:text= "${item.type}"> </td>
+		<td th:text= "${item.dongia}"> </td>
+		<td th:text= "${item.maxnguoio}"> </td>
+		
+		<td>
+			<a th:href="@{'/phong/edit/' +${item.id} }"> Edit </a> |
+			<a th:href="@{'/phong/delete/' +${item.id} }"> Delete </a>
+		</td>
+	</tr>
+
+
+	
+
+</table>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1> List Sinh Vien:</h1>
+<form th:action="@{/sinhvien/find}">
+	<input type="text" name="ten" placeholder="ten" />
+	<input type="submit" value="Find" />
+</form>
+
+<hr />
+<table>
+	<tr>
+		<td>ID</td>
+		<td>Ten</td>
+		<td>Ma SV</td>
+		<td>So CMT</td>
+		<td>Ngay Sinh</td>
+		<td>Lop</td>
+		<td>Que quan</td>
+		<td>&nbsp;</td>
+	</tr>
+	
+	<tr th:each="item : ${sinhviens}">
+		<td th:text= "${item.id}"> </td>
+		<td th:text= "${item.ten}" > </td>
+		<td th:text= "${item.maSV}"> </td>
+		<td th:text= "${item.soCMT}"> </td>
+		<td th:text= "${item.ngaysinh}"> </td>
+		<td th:text= "${item.lop}"> </td>
+		<td th:text= "${item.quequan}"> </td>
+		<td>
+			<a th:href="@{'/sinhvien/edit/' +${item.id} }"> Edit </a> |
+			<a th:href="@{'/sinhvien/delete/' +${item.id} }"> Delete </a>
+		</td>
+	</tr>
+
+
+	
+
+</table>
+</body>
+</html>

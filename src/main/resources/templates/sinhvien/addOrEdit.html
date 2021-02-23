@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Them Sinh Vien:</h1>
+
+
+<form th:action="@{/sinhvien/saveOrUpdate}" method="post" th:object="${sinhvien}"> 
+
+	Phong:
+	<select th:field="*{phong.id}">
+		<option th:each="phong : ${phongs}" th:value="${phong.id}"  th:text= "${phong.ten}" > </option>
+	 </select> <br />
+	Ten:
+	<input type="text" th:field="*{ten}" /> <br />
+	Ma Sinh Vien:
+	<input type="text" th:field="*{maSV}" /> <br />
+	So CMT:
+	<input type="text" th:field="*{soCMT}" /> <br />
+	Ngay Sinh
+	<input type="text" th:field="*{ngaysinh}" /> <br />
+	Lop:
+	<input type="text" th:field="*{lop}" /> <br />
+	Que Quan:
+	<input type="text" th:field="*{quequan}" /> <br />
+	
+	<input type="submit" value="Add" />
+	
+	<a th:href="@{/sinhvien/add}">New</a>
+	<br />
+	<a th:href= "@{/sinhvien/list}"> List Sinh Vien </a>
+	
+</form>
+</body>
+</html>

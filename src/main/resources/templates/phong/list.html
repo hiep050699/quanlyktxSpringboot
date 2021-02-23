@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1> List Phong:</h1>
+	<hr />
+
+	<table>
+		<tr>
+			<td>Id Phong</td>
+			<td>Ten Phong</td>
+			<td>Type</td>
+			<td>Don gia</td>
+			<td>MaxNguoi</td>
+			<td>&nbsp;</td>
+		</tr>
+
+		<tr th:each="phong : ${phongs}">
+			<td th:text="${phong.id}"></td>
+			<td th:text="${phong.ten}"></td>
+			<td th:text="${phong.type}"></td>
+			<td th:text="${phong.dongia}"></td>
+			<td th:text="${phong.maxnguoio}"></td>
+
+			<td>
+			<a th:href="@{'/phong/edit/' +${phong.id} }"> Edit </a> | 
+			<a th:href="@{'/phong/delete/' +${phong.id} }"> Delete </a>
+			</td>
+		</tr>
+
+
+	</table>
+</body>
+</html>
